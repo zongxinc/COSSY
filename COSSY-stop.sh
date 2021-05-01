@@ -7,12 +7,16 @@
 
 room='python3 COSSY-stop.py'
 myr=""
-while getopts "R:" opt;
+while getopts "R:h" opt;
 do
     case "${opt}" in
-            R) room="${room} -R ${OPTARG}"
+            h) echo "'-R [roomnumber]' must specify end which room"
+				exit 1
+					;;
+			R) room="${room} -R ${OPTARG}"
 				myr="${OPTARG}"
-                    ;;
+                    
+            
     esac
 done
 

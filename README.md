@@ -19,6 +19,7 @@ Capital letters are flags for the cameras or Fusion (-N is the only flag for the
   - `-M` used when there are two cameras in one room
   - `-m` is to enable saving thermal frame data in the json files.
   - `-s` is to enable single-person/baseline algorithm instead of the multiperson algorithm. For the multiperson algorithm, omit flag. 
+  - `f` is going to save the output from the RP in a folder named after current time
   - `-R [room number]` it will tell the system to look at which room's information. To decide which room the COSSY is going to run
 
 eg: to run room 1 which has 2 cameras

@@ -9,9 +9,20 @@ Fusion_2="python3 utilities/execute_fusion_alg_room2.py"
 now=$(date +"%m-%d-%Y-%T")
 room=""
 
-while getopts "MCSOImsfR:" opt;
+while getopts "MCSOImsfR:h" opt;
 do
     case "${opt}" in
+            h) echo "- '-C' will set it to run analysis from images taken from the camera
+- '-S' will set it to save images
+- '-O' will set it to save images to a folder named after current time. 
+- '-I' will read images in from a folder should you need to anaylze them as such
+- '-M' used when there are two cameras in one room
+- '-m' is to enable saving thermal frame data in the json files.
+- '-s' is to enable single-person/baseline algorithm instead of the multiperson algorithm. For the multiperson algorithm, omit flag. 
+- '-f' is going to save the output from the RP in a folder named after current time
+- '-R [room number]' it will tell the system to look at which room's information. To decide which room the COSSY is going to run"
+                exit 1
+                ;;
             M) Fusion="${Fusion} -M"
                 Fusion_2="${Fusion_2} -M"
                     ;;
@@ -36,6 +47,7 @@ do
             R) Fusion="${Fusion} -R ${OPTARG}"
                 Fusion_2="${Fusion_2} -R ${OPTARG}"
                 room="${OPTARG}"
+                    
     esac
 done
 
