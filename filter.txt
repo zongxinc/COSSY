@@ -1,0 +1,698 @@
+voltage beginn
+Current Number of People=  2
+Digital Value Calculated=  2621
+Expected Voltage=  0.2
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+05-11-2021-03:04:47
+05-06-2021-21:17:32
+['20210511030447', '20210506211732']
+2
+['RP1', 'RP2']
+file: 0
+0
+cam_count []
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+file: 1
+1
+2.0 1620716689.1974118
+cam_count [2.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 2
+file: 2
+1
+0.0 1620716691.1921518
+cam_count [2. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 2
+0
+cam_count [2. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 3
+1
+0.0 1620716693.0612903
+cam_count [2. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 3
+0
+cam_count [2. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 4
+1
+1.0 1620716694.8951955
+cam_count [2. 0. 0. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 5
+1
+0.0 1620716696.730368
+cam_count [2. 0. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 5
+0
+cam_count [2. 0. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 6
+1
+1.0 1620716698.530757
+cam_count [2. 0. 0. 1. 0. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 7
+1
+1.0 1620716700.366666
+cam_count [2. 0. 0. 1. 0. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 7
+0
+cam_count [2. 0. 0. 1. 0. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 8
+1
+0.0 1620716702.0698779
+cam_count [2. 0. 0. 1. 0. 1. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 8
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 9
+1
+1.0 1620716703.8068728
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 10
+1
+0.0 1620716705.7045412
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 10
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 11
+1
+2.0 1620716707.5408084
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 11
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 12
+1
+0.0 1620716709.4092329
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 13
+1
+0.0 1620716711.2462769
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 13
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 14
+1
+0.0 1620716713.0466974
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0
+
+writing to result
+res: 0
+file: 14
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 15
+1
+0.0 1620716714.915865
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 16
+1
+0.0 1620716716.7507362
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 16
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 17
+1
+1.0 1620716718.5856147
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 18
+1
+0.0 1620716720.4211547
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 18
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 19
+1
+0.0 1620716722.25495
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 19
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 20
+1
+1.0 1620716724.0572546
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 21
+1
+1.0 1620716725.8930726
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 21
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 22
+1
+1.0 1620716727.6624491
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 22
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 23
+1
+1.0 1620716729.427417
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 24
+1
+1.0 1620716731.2958968
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 24
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 25
+1
+2.0 1620716733.2040691
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.
+ 2.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 25
+0
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.
+ 2.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 1
+file: 26
+1
+0.0 1620716735.0687912
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.
+ 2. 0.]
+[['0.0' '0.0' '0.0' '0.0' '0.0' '0.0']
+ ['1620661357.915.json' '1620661362.957.json' 'placeHolder' 'placeHolder'
+  'placeHolder' 'placeHolder']
+ ['1620365440.663.json' '1620368144.517.json' '1620368154.981.json'
+  '1620377429.204.json' '1620378123.686.json' '1620381060.455.json']]
+writing to result
+res: 0
+file: 27
+1
+1.0 1620716736.8708787
+cam_count [2. 0. 0. 1. 0. 1. 1. 0. 1. 0. 2. 0. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1.
+ 2. 0. 1.]voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  1
+Digital Value Calculated=  1311
+Expected Voltage=  0.1
+voltage beginn
+Current Number of People=  0
+Digital Value Calculated=  0
+Expected Voltage=  0.0

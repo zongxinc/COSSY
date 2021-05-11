@@ -4,12 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys, getopt
 import time
+from voltage_room_2 import voltage_generator
 
 # Here are all the variables
 # RPLast = 0
 
 short_window = 7
-long_window = 25
+long_window = 101
 RP_ts = [] # store all the timestamps from the Raspberry Pis
 RP_count = [] # store all the count from the Raspberry Pis
 RPdict = [] # this is an array of dictionaries each element is a dictionary of timestamp and count for each RP devices
@@ -56,12 +57,15 @@ Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderd
 # Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 3/")
 
 
-cam_intermediate_count = np.zeros(len(Camerafoldername)) # array stores count of individual cameras
 roomnum = 0
+with open("/home/team19/COSSY/room_information.json") as f:
+	room = json.load(f)
 
+if len(room[0]["camera"]) > 1:
+	Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 2/")
 # get input from commandline
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "hMR:", ["H="])
+	opts, args = getopt.getopt(sys.argv[1:], "hR:f:", ["H="])
 except getopt.GetoptError:
 	print("Error: modified_filter.py -N <reportTime>")
 	sys.exit()
@@ -71,14 +75,15 @@ for opt, arg in opts:
 		print('modified_filter.py -N <reportTime>')
 		print("-M, for two cameras")
 		sys.exit()
-	elif opt == "-M":
-		Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 2/")
 	elif opt in ("-R", "roomnum"):
 		roomnum = int(arg)
+	elif opt in ("-f", "output"):
+		resultfolder = str(arg)
+
+cam_intermediate_count = np.zeros(len(Camerafoldername)) # array stores count of individual cameras
 
 
-with open("/home/team19/COSSY/room_information.json") as f:
-	room = json.load(f)
+
 sensornum = len(room[0]["thermal"])
 if roomnum == 1:
 	RPfoldername = RPfoldername[:sensornum]
@@ -213,7 +218,8 @@ while 1:
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
-		with open('/home/team19/COSSY/result2/' + str(res_ts) + '.json', 'w') as outfile:
+		voltage_generator(res_count)
+		with open('/home/team19/COSSY/room2_' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)
 
 

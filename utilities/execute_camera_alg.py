@@ -31,10 +31,10 @@ print(roomnum)
 os.system(". /home/team19/Desktop/ENV/bin/activate")
 if len(temp[roomnum-1]["camera"]) == 1:
 	os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
-	print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
+	# print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
 else:
 	os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + " -b http://viewer:OPC-ECE-viewer@" + temp[roomnum-1]["camera"][1]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" +' >running_stdout.txt&')
-	print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
+	# print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
 
 	
 

@@ -1,15 +1,18 @@
 #!/bin/bash
 
-NUC="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py"
-NUC2="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py"
+now=$(date +"%m-%d-%Y-%T")
+NUC="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py%-c%-s"
+NUC2="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py%-c%-s"
 RP="python3_rpi-realtime-peoplecount/run.py"
 Fusion="python3 utilities/execute_fusion_alg.py"
 Fusion_2="python3 utilities/execute_fusion_alg_room2.py"
 
-now=$(date +"%m-%d-%Y-%T")
-room=""
 
-while getopts "MCSOImsfR:h" opt;
+room=""
+single=""
+temperature="python3 collect_temp_info.py"
+
+while getopts "OsmR:hr:" opt;
 do
     case "${opt}" in
             h) echo "- '-C' will set it to run analysis from images taken from the camera
@@ -22,43 +25,73 @@ do
 - '-f' is going to save the output from the RP in a folder named after current time
 - '-R [room number]' it will tell the system to look at which room's information. To decide which room the COSSY is going to run"
                 exit 1
-                ;;
-            M) Fusion="${Fusion} -M"
-                Fusion_2="${Fusion_2} -M"
                     ;;
-            C) NUC="${NUC}%-c"
-                NUC2="${NUC2}%-c"
-                    ;;
-            S) NUC="${NUC}%-s"
-                NUC2="${NUC2}%-s"
-                    ;;
+            # C) NUC="${NUC}%-c"
+            #     NUC2="${NUC2}%-c"
+            #         ;;
+            # S) NUC="${NUC}%-s"
+            #     NUC2="${NUC2}%-s"
+            #         ;;
             O) NUC="${NUC}%-o%/home/team19/Desktop/Axis_DL/Detection/YOLO/${now}/"
                 NUC2="${NUC2}%-o%/home/team19/Desktop/Axis_DL/Detection/YOLO/${now}/"
+                RP="${RP}_-f_${now}/"
+                Fusion="${Fusion} -f ${now}/"
+                Fusion2="${Fusion2} -f ${now}/"
+                temperature="${temperature} -d ${now}"
                     ;;
-            I) NUC="${NUC}%-i"
-                NUC2="${NUC2}%-i"
+            # I) NUC="${NUC}%-i"
+            #     NUC2="${NUC2}%-i"
+            #         ;;
+            s) RP="${RP}_-m"
                     ;;
-            m) RP="${RP}_-m"
-                    ;;
-            s) RP="${RP}_-s"
-                    ;;
-            f) RP="${RP}_-f_${now}/"
+            m) single="m"
                     ;;
             R) Fusion="${Fusion} -R ${OPTARG}"
                 Fusion_2="${Fusion_2} -R ${OPTARG}"
                 room="${OPTARG}"
+                    ;;
+            r) input="${OPTARG}"
+                if [[ ${input} == "0" ]]
+                then
+                    temperature=""
+                else
+                    temperature="${temperature} -r ${OPTARG}"
+                fi
+                # echo "${input}"
+                
                     
     esac
 done
 
+if [[ ${single} == "m" ]]
+then
+    RP="${RP}"
+else
+    RP="${RP}_-s"
+fi
+
+echo "${RP}"
+echo "${Fusion}"
+echo "${Fusion_2}"
+echo "${NUC}"
+echo "${NUC2}"
+echo "${temperature}"
+
+
 if [[ ${room} == "1" ]]
 then
-    cd result
-    rm *.json
+    mkdir "${now}"
 else
-    cd result2
-    rm *.json
+    mkdir "room2_${now}"
 fi
+cd RP1
+rm *.json
+cd RP2
+rm *.json
+cd RP3
+rm *.json
+cd RP4
+rm *.json
 # echo "${NUC2}"
 cd
 cd Desktop
@@ -80,11 +113,12 @@ else
     echo "${NUC2}"
     eval "python3 utilities/execute_camera_alg.py -p ${NUC2} -R ${room}" &
 fi
-# echo "${RP}"
-eval "python3 utilities/execute_door_alg.py -p ${RP} -R ${room}"&
+echo "helo"
+echo "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"
+eval "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"&
 # ssh pi@10.241.10.17 "${RP}"&
 # ssh pi@10.241.10.32 "${RP}"&
-# echo "helo"
+
 if [[ ${room} == "1" ]]
 then
     python3 utilities/RP_sync.py >autoSync.txt&
@@ -92,10 +126,12 @@ else
     python3 utilities/RP_sync_room2.py >autoSync.txt&
 fi
 # echo "bello"
+deactivate
 if [[ ${room} == "1" ]]
 then
     echo "${Fusion}"
     eval "${Fusion}">filter.txt&
+    #eval "${Fusion}"&
 else
     echo "${Fusion_2}"
     eval "${Fusion_2}">filter.txt&

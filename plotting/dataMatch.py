@@ -4,15 +4,31 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 import dateutil.relativedelta
+import sys, getopt
 
-files = sorted(os.listdir('/home/team19/COSSY/result/'))
+
+try:
+	opts, args = getopt.getopt(sys.argv[1:], "hf:", ["H="])
+except getopt.GetoptError:
+	print("Error: modified_filter.py -N <reportTime>")
+	sys.exit()
+for opt, arg in opts:
+	if opt == "-h":
+		print("-f, result folder name")
+		sys.exit()
+	elif opt in ("-f", "output"):
+		resultfolder = str(arg)
+
+files = sorted(os.listdir('/home/team19/COSSY/' + resultfolder))
+
+
 
 jsonList = []
 for file in files:
 	if '.json' in file:
 		if not '._' in file:
 			jsonList.append(file)
-
+jsonList = sorted(jsonList)
 fusion_ts = []
 fusion_count = []
 print(jsonList[0][:-5])
@@ -20,9 +36,9 @@ dt1 = datetime.datetime.fromtimestamp(float(jsonList[0][0:len(jsonList[0])-5]))
 for i in range(len(jsonList)):
 	dt2 = datetime.datetime.fromtimestamp(float(jsonList[i][0:len(jsonList[i])-5]))
 	diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-	sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+	sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
 	fusion_ts.append(sec)
-	with open('/home/team19/COSSY/result/' + jsonList[i]) as f:
+	with open('/home/team19/COSSY/' + resultfolder + jsonList[i]) as f:
 		temp = json.load(f)
 		# print(type(temp[jsonList[i][0:len(jsonList[i])-5]]))
 		fusion_count.append(temp[jsonList[i][0:len(jsonList[i])-5]][0])
@@ -38,7 +54,7 @@ for i in range(len(jsonList)):
 Camera_2 = []
 Camera_3 = []
 
-files = sorted(os.listdir('/home/team19/Desktop/Axis_DL/Detection/YOLO/04-29-2021-08:15:41/Camera 1/'))
+files = sorted(os.listdir('/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/'))
 
 jsonList = []
 NUC_ts = []
@@ -48,15 +64,15 @@ for file in files:
 		if not '._' in file:
 			jsonList.append(file)
 camEnd = len(jsonList)
-# print("file:", len(jsonList))
+dts = []
 for j in range(0, camEnd):
 	dt2 = datetime.datetime.fromtimestamp(float(jsonList[j][0:len(jsonList[j])-5]))
 	diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-	sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+	sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
 	NUC_ts.append(sec)
 	# print("append", float(jsonList[j][0:len(jsonList[j])-5]))
 	total = 0
-	with open('/home/team19/Desktop/Axis_DL/Detection/YOLO/04-29-2021-08:15:41/Camera 1/' + jsonList[j]) as f:
+	with open('/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/' + jsonList[j]) as f:
 		temp = json.load(f)
 		total += float(temp['Num People'])
 		# Camera_2.append(float(temp[1][temp[1].find(':') + 1 : len(temp[1])]))
@@ -65,7 +81,7 @@ for j in range(0, camEnd):
 	# 	total += float(temp[1][temp[1].find(':') + 1 : len(temp[1])])
 	# 	Camera_3.append(float(temp[1][temp[1].find(':') + 1 : len(temp[1])]))
 	NUC_count.append(total)
-
+print(dts)
 
 RPfoldername = ["/home/team19/COSSY/RP1", "/home/team19/COSSY/RP2"]
 RP_ts = []
@@ -85,9 +101,9 @@ for i in range(len(RPfoldername)):
 		if "._" not in myfiles[j]:
 			with open(RPfoldername[i] + "/" + myfiles[j], encoding='utf-8') as f:
 				temp = json.load(f)
-				print(RPfoldername[i] + "/" + myfiles[j])
+				# print(RPfoldername[i] + "/" + myfiles[j])
 				RP_ts.append(float(temp['timestamp']))
-				print(float(temp['timestamp']), int(temp['count']))
+				# print(float(temp['timestamp']), int(temp['count']))
 				if i == 0:
 					RP_dict[i][float(temp['timestamp'])] = int(temp['count'])
 				else:
@@ -95,17 +111,17 @@ for i in range(len(RPfoldername)):
 				if i == 0:
 					dt2 = datetime.datetime.fromtimestamp(float(temp['timestamp']))
 					diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-					sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+					sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
 					RP1_ts.append(sec)
 					RP1_count.append(int(temp['count']))
 				else:
 					dt2 = datetime.datetime.fromtimestamp(float(temp['timestamp']))
 					diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-					sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+					sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
 					RP2_ts.append(sec)
 					RP2_count.append(int(temp['count']))
-print(RP1_count)
-print(RP2_count)
+# print(RP1_count)
+# print(RP2_count)
 RP_ts.sort()
 RP_count = []
 
@@ -114,7 +130,7 @@ for i in range(len(RP_ts)):
 		if RP_ts[i] in RP_dict[j]:
 			count[j] = RP_dict[j][RP_ts[i]]
 	RP_count.append(sum(count))
-print(RP_count)
+# print(RP_count)
 RP_ts_g = []
 RP_count_g = []
 RP_ts_g.append(0)
@@ -122,7 +138,7 @@ RP_count_g.append(0)
 for i in range(len(RP_ts)):
 	dt2 = datetime.datetime.fromtimestamp(RP_ts[i])
 	diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-	sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+	sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
 	# print(sec)
 	if i !=0:
 		RP_ts_g.append(sec)
@@ -175,12 +191,17 @@ RP2_count_g.append(RP2_count[-1])
 NUC_ts = np.array(NUC_ts)
 fusion_ts = np.array(fusion_ts)
 
+print(RP1_ts_g)
+print(RP1_count_g)
+print(RP2_ts_g)
+print(RP2_count_g)
+
 with open('test.npy', 'wb') as f:
 	np.save(f, NUC_ts)
 	np.save(f, fusion_ts)
 	np.save(f, NUC_count)
 	np.save(f, fusion_count)
-
+print(len(NUC_count))
 plt.figure()
 plt.plot([t/60 for t in NUC_ts], [float(count) for count in NUC_count], "b", label="OFC")
 plt.plot([t/60 for t in fusion_ts], [float(count) for count in fusion_count], "r", label="Fusion")
@@ -248,6 +269,9 @@ plt.xlabel("Time (minutes)")
 plt.ylabel("Number of people")
 plt.legend()
 plt.savefig("TDS1_TDS2_count.png")
+
+print(fusion_ts[-1])
+print(NUC_ts[-1])
 
 
 
