@@ -42,17 +42,8 @@ for i in range(len(jsonList)):
 		temp = json.load(f)
 		# print(type(temp[jsonList[i][0:len(jsonList[i])-5]]))
 		fusion_count.append(temp[jsonList[i][0:len(jsonList[i])-5]][0])
-# for data in res["info"]:
-# 	for ts in data.keys():
-# 		dt2 = datetime.datetime.fromtimestamp(float(ts))
-# 		diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-# 		sec = diff.hours * 3600 + diff.minutes * 60 + diff.seconds
-# 		fusion_ts.append(sec)
-# 		fusion_count.append(float(data[ts]))
-# plt.plot(fusion_ts, fusion_count)
-# plt.savefig("fusion_count.png")
-Camera_2 = []
-Camera_3 = []
+
+		
 
 files = sorted(os.listdir('/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/'))
 
