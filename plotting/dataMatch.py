@@ -45,7 +45,8 @@ for i in range(len(jsonList)):
 
 Camerafoldername = ['/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 2/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 3/']
 cam_intermediate_count = np.zeros(len(Camerafoldername))
-
+camdict = []
+camLast = 0
 for i in range(len(Camerafoldername)):
 	camdict.append({})
 ts_temp = []
@@ -67,45 +68,52 @@ for i in range(len(Camerafoldername)):
 			camdict[i][float(jsonList[j][0:len(jsonList[j])-5])] = temp["Num People"]
 
 ts_temp.sort()
-	if len(ts_temp) != 0:
-		NUC_ts = NUC_ts + ts_temp
-	# print("cam_ts len", cam_ts)
-	#after sorting the cam_ts, append each count to the cam_count in the order of cam_ts
-	for i in range(len(ts_temp)):
-		cam_intermediate_count = np.zeros(len(Camerafoldername)) 
-		for j in range(len(Camerafoldername)):
-			if ts_temp[i] in camdict[j]:	
-				cam_intermediate_count[j] = camdict[j][ts_temp[i]]
-				print(cam_intermediate_count[j], ts_temp[i])
-		NUC_count = np.append(cam_count, sum(cam_intermediate_count))
-# files = sorted(os.listdir('/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/'))
+if len(ts_temp) != 0:
+	NUC_ts = NUC_ts + ts_temp
+# print("cam_ts len", cam_ts)
+#after sorting the cam_ts, append each count to the cam_count in the order of cam_ts
+for i in range(len(ts_temp)):
+	cam_intermediate_count = np.zeros(len(Camerafoldername)) 
+	for j in range(len(Camerafoldername)):
+		if ts_temp[i] in camdict[j]:	
+			cam_intermediate_count[j] = camdict[j][ts_temp[i]]
+			print(cam_intermediate_count[j], ts_temp[i])
+	NUC_count = np.append(NUC_count, sum(cam_intermediate_count))
 
-# jsonList = []
-# NUC_ts = []
-# NUC_count = []
-# for file in files:
-# 	if '.json' in file:
-# 		if not '._' in file:
-# 			jsonList.append(file)
-# camEnd = len(jsonList)
-# dts = []
-# for j in range(0, camEnd):
-# 	dt2 = datetime.datetime.fromtimestamp(float(jsonList[j][0:len(jsonList[j])-5]))
-# 	diff = dateutil.relativedelta.relativedelta(dt2, dt1)
-# 	sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
-# 	NUC_ts.append(sec)
-# 	# print("append", float(jsonList[j][0:len(jsonList[j])-5]))
-# 	total = 0
-# 	with open('/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/' + jsonList[j]) as f:
-# 		temp = json.load(f)
-# 		total += float(temp['Num People'])
-# 		# Camera_2.append(float(temp[1][temp[1].find(':') + 1 : len(temp[1])]))
-# 	# with open('/home/team19/Desktop/Axis_DL/Detection/YOLO/04-12-2021-11:22:06/Camera 2/' + jsonList[j]) as f:
-# 	# 	temp = json.load(f)
-# 	# 	total += float(temp[1][temp[1].find(':') + 1 : len(temp[1])])
-# 	# 	Camera_3.append(float(temp[1][temp[1].find(':') + 1 : len(temp[1])]))
-# 	NUC_count.append(total)
-
+fusion_count_g = []
+fusion_ts_g = []
+for i in range(len(fusion_ts)):
+	# dt2 = datetime.datetime.fromtimestamp(fusion_ts[i])
+	# diff = dateutil.relativedelta.relativedelta(dt2, dt1)
+	# sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+	if i !=0:
+		fusion_ts_g.append(fusion_ts[i])
+		fusion_count_g.append(fusion_count[i-1])
+	else:
+		fusion_ts_g.append(fusion_ts[i])
+		fusion_count_g.append(0)
+	fusion_ts_g.append(fusion_ts[i])
+	fusion_count_g.append(fusion_count[i])
+print(fusion_count_g)
+print(fusion_ts_g)
+NUC_count_g = []
+NUC_ts_g = []
+for i in range(len(NUC_ts)):
+        dt2 = datetime.datetime.fromtimestamp(fusion_ts[i])
+        diff = dateutil.relativedelta.relativedelta(dt2, dt1)
+        print(dt1)
+        print(dt2)
+        sec = diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds
+        if i !=0:
+                NUC_ts_g.append(sec)
+                NUC_count_g.append(NUC_count[i-1])
+        else:
+                NUC_ts_g.append(sec)
+                NUC_count_g.append(0)
+        NUC_ts_g.append(sec)
+        NUC_count_g.append(NUC_count[i])
+print(NUC_ts_g)
+print(NUC_count_g)
 
 RPfoldername = ["/home/team19/COSSY/RP1", "/home/team19/COSSY/RP2"]
 RP_ts = []
@@ -228,7 +236,7 @@ with open('test.npy', 'wb') as f:
 print(len(NUC_count))
 plt.figure()
 plt.plot([t/60 for t in NUC_ts], [float(count) for count in NUC_count], "b", label="OFC")
-plt.plot([t/60 for t in fusion_ts], [float(count) for count in fusion_count], "r", label="Fusion")
+plt.plot([t/60 for t in fusion_ts_g], [float(count) for count in fusion_count_g], "r", label="Fusion")
 # plt.xlim([0, 50])
 plt.yticks(np.arange(-5, 8, 1.0))
 plt.title("Fusion and OFC")
@@ -240,7 +248,7 @@ plt.savefig("Fusion_OFC_count.png")
 
 plt.figure()
 fig,ax = plt.subplots()
-l1, = ax.plot([t/60 for t in fusion_ts], [float(count) for count in fusion_count], "r", label="Fusion")
+l1, = ax.plot([t/60 for t in fusion_ts_g], [float(count) for count in fusion_count_g], "r", label="Fusion")
 # plt.xlim([0, 50])
 # plt.ylim([-10, 10])
 ax.set_yticks(np.arange(-5, 10, 1), minor=False)
