@@ -1,8 +1,8 @@
 #!/bin/bash
 
 now=$(date +"%m-%d-%Y-%T")
-NUC="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py%-c%-s"
-NUC2="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py%-c%-s"
+NUC="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py%-c"
+NUC2="python3%/home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py%-c"
 RP="python3_rpi-realtime-peoplecount/run.py"
 Fusion="python3 utilities/execute_fusion_alg.py"
 Fusion_2="python3 utilities/execute_fusion_alg_room2.py"
@@ -12,7 +12,7 @@ room=""
 single=""
 temperature="python3 collect_temp_info.py"
 
-while getopts "OsmR:hr:" opt;
+while getopts "OSsmR:hr:D" opt;
 do
     case "${opt}" in
             h) echo "- '-C' will set it to run analysis from images taken from the camera
@@ -39,9 +39,11 @@ do
                 Fusion2="${Fusion2} -f ${now}/"
                 temperature="${temperature} -d ${now}"
                     ;;
-            # I) NUC="${NUC}%-i"
-            #     NUC2="${NUC2}%-i"
-            #         ;;
+            D) Fusion = "${Fusion} -D"
+                    ;;
+            S) NUC="${NUC}%-s"
+                NUC2 = "${NUC2}%-s"
+                    ;;
             s) RP="${RP}_-m"
                     ;;
             m) single="m"
