@@ -61,8 +61,9 @@ roomnum = 0
 with open("/home/team19/COSSY/room_information.json") as f:
 	room = json.load(f)
 # get input from commandline
+DAC = 0
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "hR:f:", ["H="])
+	opts, args = getopt.getopt(sys.argv[1:], "hR:f:D", ["H="])
 except getopt.GetoptError:
 	print("Error: modified_filter.py -N <reportTime>")
 	sys.exit()
@@ -77,6 +78,8 @@ for opt, arg in opts:
 		roomnum = int(arg)
 	elif opt in ("-f", "output"):
 		resultfolder = str(arg)
+	elif opt in ("-D", "DAC"):
+		DAC == 1
 
 cam_intermediate_count = np.zeros(len(Camerafoldername)) # array stores count of individual cameras
 
@@ -113,14 +116,14 @@ while 1:
 				if not '._' in file:
 					jsonList.append(file)
 		camEnd = len(jsonList)
-		print("file:", len(jsonList))
+# 		print("file:", len(jsonList))
 		for j in range(camLast, camEnd):
 			ts_temp.append(float(jsonList[j][0:len(jsonList[j])-5]))
 			# print("append", float(jsonList[j][0:len(jsonList[j])-5]))
 			with open(Camerafoldername[i] + jsonList[j]) as f:
 				temp = json.load(f)
 				camdict[i][float(jsonList[j][0:len(jsonList[j])-5])] = temp["Num People"]
-	print(len(ts_temp))
+# 	print(len(ts_temp))
 	camLast = camEnd
 	ts_temp.sort()
 	if len(ts_temp) != 0:
@@ -134,7 +137,7 @@ while 1:
 				cam_intermediate_count[j] = camdict[j][ts_temp[i]]
 				print(cam_intermediate_count[j], ts_temp[i])
 		cam_count = np.append(cam_count, sum(cam_intermediate_count))
-	print("cam_count", cam_count)
+# 	print("cam_count", cam_count)
 	#go through all the RP folder and decide which one has the most file and create a matrix that store all the RP information.
 	for i in range(len(RPfoldername)):
 		myfiles = np.array(os.listdir(RPfoldername[i]))
@@ -158,7 +161,7 @@ while 1:
 		fileList = np.vstack([fileList, myprocessedfile])
 	#print(np.shape(fileList))
 	#print(np.shape(fileList), maxFileNum)
-	print(fileList)
+# 	print(fileList)
 	#creating dictionary for all the time stamp and add the count and time stamp to RP_count and RP_ts
 	ts_temp = []
 	for i in range(1, np.shape(fileList)[0]):
@@ -211,12 +214,13 @@ while 1:
 			res_ts = cam_ts[-1]
 
 	# report
-		print("writing to result")
+# 		print("writing to result")
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
-		print("res:", int(res_count))
-		os.system('python3 /home/team19/COSSY/utilities/voltage_room_1.py ' + str(int(res_count)))
+		print("Room 1:", int(res_count))
+		if DAC == 1:
+			os.system('python3 /home/team19/COSSY/utilities/voltage_room_1.py ' + str(int(res_count)))
 
 		with open('/home/team19/COSSY/' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)
