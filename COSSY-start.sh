@@ -37,10 +37,11 @@ do
                 NUC2="${NUC2}%-o%/home/team19/Desktop/Axis_DL/Detection/YOLO/${now}/"
                 RP="${RP}_-f_${now}/"
                 Fusion="${Fusion} -f ${now}/"
-                Fusion2="${Fusion2} -f ${now}/"
+                Fusion_2="${Fusion_2} -f ${now}/"
                 temperature="${temperature} -d ${now}"
                     ;;
             D) Fusion="${Fusion} -D"
+                Fusion_2="${Fusion_2} -D"
                     ;;
             S) NUC="${NUC}%-s"
                 NUC2 = "${NUC2}%-s"
