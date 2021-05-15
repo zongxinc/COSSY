@@ -40,7 +40,7 @@ do
                 Fusion2="${Fusion2} -f ${now}/"
                 temperature="${temperature} -d ${now}"
                     ;;
-            D) Fusion = "${Fusion} -D"
+            D) Fusion="${Fusion} -D"
                     ;;
             S) NUC="${NUC}%-s"
                 NUC2 = "${NUC2}%-s"
