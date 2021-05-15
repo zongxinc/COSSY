@@ -135,7 +135,7 @@ while 1:
 		for j in range(len(Camerafoldername)):
 			if ts_temp[i] in camdict[j]:	
 				cam_intermediate_count[j] = camdict[j][ts_temp[i]]
-				print(cam_intermediate_count[j], ts_temp[i])
+# 				print(cam_intermediate_count[j], ts_temp[i])
 		cam_count = np.append(cam_count, sum(cam_intermediate_count))
 # 	print("cam_count", cam_count)
 	#go through all the RP folder and decide which one has the most file and create a matrix that store all the RP information.
