@@ -10,9 +10,10 @@ Fusion_2="python3 utilities/execute_fusion_alg_room2.py"
 
 room=""
 single=""
+cam=""
 temperature="python3 collect_temp_info.py"
 
-while getopts "OSsmR:hr:D" opt;
+while getopts "OSsmR:hr:DAB" opt;
 do
     case "${opt}" in
             h) echo "- '-C' will set it to run analysis from images taken from the camera
@@ -47,6 +48,10 @@ do
             s) RP="${RP}_-m"
                     ;;
             m) single="m"
+                    ;;
+            A) cam="${cam} -A"
+                    ;;
+            B) cam="${cam} -B"
                     ;;
             R) Fusion="${Fusion} -R ${OPTARG}"
                 Fusion_2="${Fusion_2} -R ${OPTARG}"
@@ -110,10 +115,10 @@ cd COSSY
 if [[ ${room} == "1" ]]
 then
     echo "${NUC}"
-    eval "python3 utilities/execute_camera_alg.py -p ${NUC} -R ${room}" &
+    eval "python3 utilities/execute_camera_alg.py -p ${NUC} -R ${room} ${cam}" &
 else
     echo "${NUC2}"
-    eval "python3 utilities/execute_camera_alg.py -p ${NUC2} -R ${room}" &
+    eval "python3 utilities/execute_camera_alg.py -p ${NUC2} -R ${room} ${cam}" &
 fi
 echo "helo"
 echo "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"
