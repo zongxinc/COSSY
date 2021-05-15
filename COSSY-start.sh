@@ -137,9 +137,9 @@ deactivate
 if [[ ${room} == "1" ]]
 then
     echo "${Fusion}"
-    eval "${Fusion}">filter.txt&
+    eval "${Fusion}"&
     #eval "${Fusion}"&
 else
     echo "${Fusion_2}"
-    eval "${Fusion_2}">filter.txt&
+    eval "${Fusion_2}"&
 fi
