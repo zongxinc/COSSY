@@ -34,18 +34,18 @@ count = 1
 # 		# print('ssh ' + j['thermal_ip'] + ' ' + RP + '&')
 print(roomnum)
 os.system(". /home/team19/Desktop/ENV/bin/activate")
-if A == 0 && B == 0:
+if A == 0 and B == 0:
 	if len(temp[roomnum-1]["camera"]) == 1:
 		os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
 		# print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
 	else:
 		os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + " -b http://viewer:OPC-ECE-viewer@" + temp[roomnum-1]["camera"][1]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" +' >running_stdout.txt&')
 		# print(". /home/team19/Desktop/ENV/bin/activate | "+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
-elif A == 1 && B == 0:
+elif A == 1 and B == 0:
 	os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
-elif A == 0 && B == 1:
+elif A == 0 and B == 1:
 	os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][1]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + ' >running_stdout.txt&')
-elif A == 1 && B == 1:
+elif A == 1 and B == 1:
 	os.system(". /home/team19/Desktop/ENV/bin/activate|"+Camera + ' -a http://viewer:OPC-ECE-viewer@' + temp[roomnum-1]["camera"][0]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" + " -b http://viewer:OPC-ECE-viewer@" + temp[roomnum-1]["camera"][1]['cam_ip'] + "//axis-cgi/mjpg/video.cgi" +' >running_stdout.txt&')	
 
 	
