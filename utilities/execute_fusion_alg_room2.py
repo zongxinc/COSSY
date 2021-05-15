@@ -64,8 +64,9 @@ with open("/home/team19/COSSY/room_information.json") as f:
 if len(room[0]["camera"]) > 1:
 	Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 2/")
 # get input from commandline
+DAC = 0
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "hR:f:", ["H="])
+	opts, args = getopt.getopt(sys.argv[1:], "hR:f:D", ["H="])
 except getopt.GetoptError:
 	print("Error: modified_filter.py -N <reportTime>")
 	sys.exit()
@@ -79,6 +80,8 @@ for opt, arg in opts:
 		roomnum = int(arg)
 	elif opt in ("-f", "output"):
 		resultfolder = str(arg)
+	elif opt in ("-D", "DAC"):
+		DAC = 1
 
 cam_intermediate_count = np.zeros(len(Camerafoldername)) # array stores count of individual cameras
 
@@ -217,8 +220,9 @@ while 1:
 		print("writing to result")
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
-		# print(cam_count)
-		voltage_generator(res_count)
+		print("Room 2:", res_count)
+		if DAC == 1:
+			voltage_generator(res_count)
 		with open('/home/team19/COSSY/room2_' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)
 
