@@ -93,12 +93,16 @@ else
 fi
 cd RP1
 rm *.json
+cd ..
 cd RP2
 rm *.json
+cd ..
 cd RP3
 rm *.json
+cd ..
 cd RP4
 rm *.json
+cd ..
 # echo "${NUC2}"
 cd
 cd Desktop
