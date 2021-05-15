@@ -165,7 +165,7 @@ while 1:
 		fileList = np.vstack([fileList, myprocessedfile])
 	#print(np.shape(fileList))
 	#print(np.shape(fileList), maxFileNum)
-	print(fileList)
+# 	print(fileList)
 	#creating dictionary for all the time stamp and add the count and time stamp to RP_count and RP_ts
 	ts_temp = []
 	for i in range(1, np.shape(fileList)[0]):
