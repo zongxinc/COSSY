@@ -120,14 +120,14 @@ while 1:
 				if not '._' in file:
 					jsonList.append(file)
 		camEnd = len(jsonList)
-		print("file:", len(jsonList))
+# 		print("file:", len(jsonList))
 		for j in range(camLast, camEnd):
 			ts_temp.append(float(jsonList[j][0:len(jsonList[j])-5]))
 			# print("append", float(jsonList[j][0:len(jsonList[j])-5]))
 			with open(Camerafoldername[i] + jsonList[j]) as f:
 				temp = json.load(f)
 				camdict[i][float(jsonList[j][0:len(jsonList[j])-5])] = temp["Num People"]
-	print(len(ts_temp))
+# 	print(len(ts_temp))
 	camLast = camEnd
 	ts_temp.sort()
 	if len(ts_temp) != 0:
@@ -141,7 +141,7 @@ while 1:
 				cam_intermediate_count[j] = camdict[j][ts_temp[i]]
 # 				print(cam_intermediate_count[j], ts_temp[i])
 		cam_count = np.append(cam_count, sum(cam_intermediate_count))
-	print("cam_count", cam_count)
+# 	print("cam_count", cam_count)
 	#go through all the RP folder and decide which one has the most file and create a matrix that store all the RP information.
 	for i in range(len(RPfoldername)):
 		myfiles = np.array(os.listdir(RPfoldername[i]))
@@ -217,7 +217,7 @@ while 1:
 			res_ts = cam_ts[-1]
 
 	# report
-		print("writing to result")
+# 		print("writing to result")
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		print("Room 2:", res_count)
