@@ -79,7 +79,7 @@ for opt, arg in opts:
 	elif opt in ("-f", "output"):
 		resultfolder = str(arg)
 	elif opt in ("-D", "DAC"):
-		DAC == 1
+		DAC = 1
 
 cam_intermediate_count = np.zeros(len(Camerafoldername)) # array stores count of individual cameras
 
