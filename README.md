@@ -27,7 +27,7 @@ bash COSSY-start.sh [flags]
 - `-A` (optional)only uses Camera 1
 - `-B` (optional)only uses Camera 2
 - `-r` (optional)the frequency of recording temperature on RP, default is 1(60s), if 0 was input, it will not record temperature
--  
+
 **Example: run COSSY in room #1:**
 
 `bash COSSY-start.sh -O -R 1 &`
