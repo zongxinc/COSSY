@@ -56,6 +56,13 @@ eg:
 `python3 dataMatch.py -f 05-11-2021-03:04:47/`
 Remember to add `/` at the end
 
+## Location of all the relevant codes
+Camera Codes:
+- Room 1: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py
+- Room 2: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py
+Fusion Codes:
+- Room 1: /home/team19/COSSY/utilities/execute_fusion_alg.py 
+- Room 2: /home/team19/COSSY/utilities/execute_fusion_alg_room2.py
 
 # Notes:
 
