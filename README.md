@@ -20,8 +20,13 @@ bash COSSY-start.sh [flags]
 **Flags:**
 - `-R [room number]` run COSSY in room number 1 or 2
 - `-O` save the result from Camera, RP and Fusion in directory with name corresponding to current time 
+- `-S` (optional)save images thhe Cameras are taking
 - `-s` (optional)save the RP thermal frame into the result folder as well
 - `-m` (optional)using multi-people algorithm on the RP, if not specified, RP will use the single-people algorithm
+- `-D` (optional)using DAC on fustion result
+- `-A` (optional)only uses Camera 1
+- `-B` (optional)only uses Camera 2
+- `-r` (optional)the frequency of recording temperature on RP, default is 1(60s), if 0 was input, it will not record temperature
 
 **Example: run COSSY in room #1:**
 
@@ -51,6 +56,15 @@ eg:
 `python3 dataMatch.py -f 05-11-2021-03:04:47/`
 Remember to add `/` at the end
 
+## Location of all the relevant codes
+Camera Codes:
+- Room 1: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py
+- Room 2: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py
+Fusion Codes:
+- Room 1: /home/team19/COSSY/utilities/execute_fusion_alg.py 
+- Room 2: /home/team19/COSSY/utilities/execute_fusion_alg_room2.py
+Plotting:
+- /home/team19/COSSY/plotting/COSSY_plotting.py
 
 # Notes:
 
