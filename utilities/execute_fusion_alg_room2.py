@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys, getopt
 import time
-from voltage_room_2 import voltage_generator
+#from voltage_room_2 import voltage_generator
 
 # Here are all the variables
 # RPLast = 0
