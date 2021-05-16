@@ -52,7 +52,7 @@ for i, f in enumerate(datafolder):
 	datafolder[i] = f[6:10] + f[0:2] + f[3:5] + f[11:13] + f[14:16] + f[17:19]
 	folderdict[datafolder[i]] = f
 datafolder = sorted(datafolder, reverse=True)
-print(datafolder)
+# print(datafolder)
 Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 1/")
 # Camerafoldername.append("/home/team19/Desktop/Axis_DL/Detection/YOLO/" + folderdict[datafolder[0]] +"/Camera 3/")
 
@@ -92,8 +92,8 @@ if roomnum == 1:
 	RPfoldername = RPfoldername[:sensornum]
 else:
 	RPfoldername = RPfoldername[sensornum:]
-print(sensornum)
-print(RPfoldername)
+# print(sensornum)
+# print(RPfoldername)
 count = np.zeros(len(RPfoldername))
 
 # initialize the dictionaries
