@@ -20,9 +20,14 @@ bash COSSY-start.sh [flags]
 **Flags:**
 - `-R [room number]` run COSSY in room number 1 or 2
 - `-O` save the result from Camera, RP and Fusion in directory with name corresponding to current time 
+- `-S` (optional)save images thhe Cameras are taking
 - `-s` (optional)save the RP thermal frame into the result folder as well
 - `-m` (optional)using multi-people algorithm on the RP, if not specified, RP will use the single-people algorithm
-
+- `-D` (optional)using DAC on fustion result
+- `-A` (optional)only uses Camera 1
+- `-B` (optional)only uses Camera 2
+- `-r` (optional)the frequency of recording temperature on RP, default is 1(60s), if 0 was input, it will not record temperature
+-  
 **Example: run COSSY in room #1:**
 
 `bash COSSY-start.sh -O -R 1 &`
