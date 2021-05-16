@@ -63,6 +63,8 @@ Camera Codes:
 Fusion Codes:
 - Room 1: /home/team19/COSSY/utilities/execute_fusion_alg.py 
 - Room 2: /home/team19/COSSY/utilities/execute_fusion_alg_room2.py
+Plotting:
+- /home/team19/COSSY/plotting/COSSY_plotting.py
 
 # Notes:
 
