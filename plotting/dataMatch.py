@@ -20,8 +20,8 @@ for opt, arg in opts:
 		resultfolder = str(arg)
 
 files = sorted(os.listdir('/home/team19/COSSY/' + resultfolder))
-
-
+ts_folder = resultfolder.replace('room2_', '')
+print(ts_folder)
 
 jsonList = []
 for file in files:
@@ -43,7 +43,7 @@ for i in range(len(jsonList)):
 		# print(type(temp[jsonList[i][0:len(jsonList[i])-5]]))
 		fusion_count.append(temp[jsonList[i][0:len(jsonList[i])-5]][0])
 
-Camerafoldername = ['/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 1/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 2/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + resultfolder + 'Camera 3/']
+Camerafoldername = ['/home/team19/Desktop/Axis_DL/Detection/YOLO/' + ts_folder + 'Camera 1/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + ts_folder + 'Camera 2/', '/home/team19/Desktop/Axis_DL/Detection/YOLO/' + ts_folder + 'Camera 3/']
 cam_intermediate_count = np.zeros(len(Camerafoldername))
 camdict = []
 camLast = 0
