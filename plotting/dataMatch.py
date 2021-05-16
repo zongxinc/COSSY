@@ -99,7 +99,7 @@ print(fusion_ts_g)
 NUC_count_g = []
 NUC_ts_g = []
 for i in range(len(NUC_ts)):
-        dt2 = datetime.datetime.fromtimestamp(fusion_ts[i])
+        dt2 = datetime.datetime.fromtimestamp(NUC_ts[i])
         diff = dateutil.relativedelta.relativedelta(dt2, dt1)
         print(dt1)
         print(dt2)
