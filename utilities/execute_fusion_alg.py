@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import sys, getopt
 import time
 import subprocess
+from datetime import datetime
 
 # Here are all the variables
 # RPLast = 0
@@ -219,7 +220,7 @@ while 1:
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
 		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-		outfile.write("Room 1: " + res_count)
+		outfile.write(datetime.fromtimestamp(res_ts) + " Room #1: " + str(res_count))
 		outfile.close()
 # 		print("Room 1:", int(res_count))
 		if DAC == 1:
