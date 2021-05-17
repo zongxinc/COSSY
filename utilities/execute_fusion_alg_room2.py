@@ -222,9 +222,11 @@ while 1:
 # 		print("writing to result")
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
-		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-		outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room 2: " + str(res_count) + '\n')
-		outfile.close()
+
+		if len(cam_ts) > camIndex:
+			outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
+			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room 2: " + str(res_count) + "\n")
+			outfile.close()
 # 		print("Room 2:", res_count)
 		if DAC == 1:
 #			print("DAC")
