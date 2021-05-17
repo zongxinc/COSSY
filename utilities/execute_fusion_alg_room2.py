@@ -4,12 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys, getopt
 import time
-<<<<<<< HEAD
-#from voltage_room_2 import voltage_generator
-=======
 from voltage_room_2 import voltage_generator
 from datetime import datetime
->>>>>>> 9062fc37090175409d40ee92add469274a958f57
+
 
 # Here are all the variables
 # RPLast = 0
