@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import sys, getopt
 import time
 from voltage_room_2 import voltage_generator
+from datetime import datetime
 
 # Here are all the variables
 # RPLast = 0
@@ -221,7 +222,7 @@ while 1:
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-		outfile.write("Room 2: " + res_count)
+		outfile.write(datetime.fromtimestamp(res_ts) + " Room 2: " + res_count)
 		outfile.close()
 # 		print("Room 2:", res_count)
 		if DAC == 1:
