@@ -220,7 +220,7 @@ while 1:
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
 		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-		outfile.write(datetime.fromtimestamp(res_ts) + " Room #1: " + str(res_count))
+		outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room #1: " + str(res_count))
 		outfile.close()
 # 		print("Room 1:", int(res_count))
 		if DAC == 1:

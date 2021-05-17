@@ -223,12 +223,12 @@ while 1:
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-		outfile.write(datetime.fromtimestamp(res_ts) + " Room 2: " + str(res_count))
+		outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room 2: " + str(res_count))
 		outfile.close()
 # 		print("Room 2:", res_count)
 		if DAC == 1:
-			print("DAC")
-			os.system('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + int(res_count))
+#			print("DAC")
+			os.system('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + str(int(res_count)))
 		with open('/home/team19/COSSY/room2_' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)
 
