@@ -9,10 +9,6 @@
     ],
     "thermal": [
       {
-        "thermal_id": "TDS-1",
-        "thermal_ip": "pi@10.241.10.33"
-      },
-      {
         "thermal_id": "TDS-2",
         "thermal_ip": "pi@10.241.10.32"
       }
@@ -22,10 +18,6 @@
     "room # ": 2,
     "camera": [
       {
-        "cam_id": "OFC-1",
-        "cam_ip": "10.241.10.15"
-      },
-      {
         "cam_id": "OFC-2",
         "cam_ip": "10.241.10.16"
       }
@@ -34,10 +26,6 @@
       {
         "thermal_id": "TDS-1",
         "thermal_ip": "pi@10.241.10.33"
-      },
-      {
-        "thermal_id": "TDS-2",
-        "thermal_ip": "pi@10.241.10.32"
       }
     ]
   }
