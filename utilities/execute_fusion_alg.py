@@ -218,7 +218,10 @@ while 1:
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
-		print("Room 1:", int(res_count))
+		outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
+		outfile.write("Room 1: " + res_count)
+		outfile.close()
+# 		print("Room 1:", int(res_count))
 		if DAC == 1:
 			os.system('python3 /home/team19/COSSY/utilities/voltage_room_1.py ' + str(int(res_count)))
 
