@@ -20,7 +20,7 @@ maxFileNum = 0 # currently in all the RP directories, the max number of files in
 RPIndex = 0 # the index of last visited element in RP_ts and RP_count
 camIndex = 0 # the index of last processed element in cam_ts and cam_count
 start = 0 # the index of RP last time used as right
-
+camG = 0
 RPfoldername = []
 RP_deleted = []
 folders = os.listdir()
@@ -187,7 +187,6 @@ while 1:
 			if ts_temp[i] in RPdict[j]:
 				count[j] = RPdict[j][ts_temp[i]]
 		RP_count.append(sum(count))
-
 	#fusion
 	if len(cam_ts) > 0:
 		if (len(RP_ts) > RPIndex):
@@ -195,7 +194,7 @@ while 1:
 			med = np.median(window)
 			res_count = med
 			res_ts = cam_ts[-1]
-			cam_Index = len(cam_ts) - 1
+			camIndex = len(cam_ts) - 1
 			RPIndex = len(RP_ts)
 		elif (len(cam_ts) - camIndex < short_window):
 			window = cam_count[-short_window:]
@@ -219,9 +218,10 @@ while 1:
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 		# print(cam_count)
-		if len(cam_ts) > camIndex:
+		if len(cam_ts) > camG:
+			camG = len(cam_ts)
 			outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room #1: " + str(res_count) + "                  ")
+			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room #1: " + str(res_count) + "\n")
 			outfile.close()
 # 		print("Room 1:", int(res_count))
 		if DAC == 1:

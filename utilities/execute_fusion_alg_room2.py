@@ -4,13 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys, getopt
 import time
-from voltage_room_2 import voltage_generator
+# from voltage_room_2 import voltage_generator
 from datetime import datetime
 
 
 # Here are all the variables
 # RPLast = 0
-
+res_count = 0
 short_window = 7
 long_window = 101
 RP_ts = [] # store all the timestamps from the Raspberry Pis
@@ -20,7 +20,7 @@ maxFileNum = 0 # currently in all the RP directories, the max number of files in
 RPIndex = 0 # the index of last visited element in RP_ts and RP_count
 camIndex = 0 # the index of last processed element in cam_ts and cam_count
 start = 0 # the index of RP last time used as right
-
+camG = 0
 RPfoldername = []
 RP_deleted = []
 folders = os.listdir()
@@ -199,7 +199,7 @@ while 1:
 			med = np.median(window)
 			res_count = med
 			res_ts = cam_ts[-1]
-			cam_Index = len(cam_ts) - 1
+			camIndex = len(cam_ts) - 1
 			RPIndex = len(RP_ts)
 		elif (len(cam_ts) - camIndex < short_window):
 			window = cam_count[-short_window:]
@@ -219,17 +219,20 @@ while 1:
 			res_ts = cam_ts[-1]
 
 	# report
+
 # 		print("writing to result")
 		result = {}
 		result[str(res_ts)] = [str(res_count)]
 
-		if len(cam_ts) > camIndex:
+		if len(cam_ts) > camG:
+			camG = len(cam_ts)
 			outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room 2: " + str(res_count) + "\n")
+			outfile.write("                                                       " + str(datetime.fromtimestamp(float(res_ts))) + " Room #2: " + str(res_count) + "\n")
 			outfile.close()
 # 		print("Room 2:", res_count)
 		if DAC == 1:
-#			print("DAC")
+			print("DAC")
+			print('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + str(int(res_count)))
 			os.system('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + str(int(res_count)))
 		with open('/home/team19/COSSY/room2_' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)

@@ -78,12 +78,12 @@ else
     RP="${RP}_-s"
 fi
 
-echo "${RP}"
-echo "${Fusion}"
-echo "${Fusion_2}"
-echo "${NUC}"
-echo "${NUC2}"
-echo "${temperature}"
+# echo "${RP}"
+# echo "${Fusion}"
+# echo "${Fusion_2}"
+# echo "${NUC}"
+# echo "${NUC2}"
+# echo "${temperature}"
 
 
 if [[ ${room} == "1" ]]
@@ -119,14 +119,14 @@ cd
 cd COSSY
 if [[ ${room} == "1" ]]
 then
-    echo "${NUC}"
+    # echo "${NUC}"
     eval "python3 utilities/execute_camera_alg.py -p ${NUC} -R ${room} ${cam}" &
 else
-    echo "${NUC2}"
+    # echo "${NUC2}"
     eval "python3 utilities/execute_camera_alg.py -p ${NUC2} -R ${room} ${cam}" &
 fi
-echo "helo"
-echo "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"
+# echo "helo"
+# echo "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"
 eval "python3 utilities/execute_door_alg.py -p ${RP} -R ${room} ${temperature}"&
 # ssh pi@10.241.10.17 "${RP}"&
 # ssh pi@10.241.10.32 "${RP}"&
@@ -141,10 +141,10 @@ fi
 deactivate
 if [[ ${room} == "1" ]]
 then
-    echo "${Fusion}"
+    # echo "${Fusion}"
     eval "${Fusion}"&
     #eval "${Fusion}"&
 else
-    echo "${Fusion_2}"
+    # echo "${Fusion_2}"
     eval "${Fusion_2}"&
 fi
