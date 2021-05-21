@@ -1,81 +1,104 @@
-# BOSTON UNIVERSITY
-# COSSY - Computational Occupancy Sensing System  
+### BOSTON UNIVERSITY
+### COSSY - Computational Occupancy Sensing System  
 
-# Setting up COSSY in a new deployment.
-**You must have IP addresses for all devices (MAC addresses)**
+
+## Setting up COSSY in a new deployment.
+
+# You must have IP addresses for all devices (an IP address for each MAC address).
+# Then, run:
 
 cd cossy
 python3 COSSY-setup.py
 
-**Answer all questions. Sensor and camera IDs are printed on each device.**
-**Make sure all the answers are correct so that the system can connect to all devices.**
+# Answer all questions. Door sensor and camera IDs are printed on each device.
+# Make sure all the answers are correct so that the system can connect to all devices.
 
 
-# Starting COSSY
-**Make sure that no one stands under door sensors for the first 10 sec of system operation.**
+## Starting COSSY
+
+# Make sure that no one stands under door sensors for the first 10 sec of system operation.
+# Run:
 
 cd cossy
 bash COSSY-start.sh [flags]
 
-**Flags:**
-- `-R [room number]` run COSSY in room number 1 or 2
-- `-O` save the result from Camera, RP and Fusion in directory with name corresponding to current time 
-- `-S` (optional)save images thhe Cameras are taking
-- `-s` (optional)save the RP thermal frame into the result folder as well
-- `-m` (optional)using multi-people algorithm on the RP, if not specified, RP will use the single-people algorithm
-- `-D` (optional)using DAC on fustion result
-- `-A` (optional)only uses Camera 1
-- `-B` (optional)only uses Camera 2
-- `-r` (optional)the frequency of recording temperature on RP, default is 1(60s), if 0 was input, it will not record temperature
+# Flags:
 
-**Example: run COSSY in room #1:**
+  "-R N" run COSSY in room number 1 (N=1) or 2 (N=2); to run in 2 rooms, run the script twice
+  "-O"   save all results (cameras, door sensors, fusion) in directory with time-stamped name; otherwise, default directory 
+  "-S"   save images captured by the camera(s); default: images not saved
+  "-s"   save thermal frames captured by door sensor(s); default: thermal frames not saved
+  "-m"   use the multi-people algorithm in door sensors; default: single-people algorithm
+  "-D"   use the DAC to convert the fusion result to voltage; default: DAC not used
+  "-C N" use camera N only, (N=1 for camera 1 or N=2 for camera 2)
+  "-r N" save R-Pi temperature every N seconds; if N=0 no recording of temperature; efault: N= 60 [sec]; 
 
-`bash COSSY-start.sh -O -R 1 &`
+# Example: run COSSY in room #1:
 
-**Example: run COSSY in room #2 and save the thermal frame:**
+bash COSSY-start.sh -O -R 1 &
 
-`bash COSSY-start.sh -O -R 2 -s &`
+# Example: run COSSY in room #2 and save thermal frames:
+
+bash COSSY-start.sh -O -R 2 -s &
 
 
-# Stopping COSSY: first hit "Enter" on the keyboard (to get the prompt) and then
+## Stopping COSSY
 
-`bash COSSY-stop.sh [flags]`
+# First, hit "Enter" on the keyboard (to get the prompt) and then:
 
-**Flags:**
-- `-R [room number]` stop COSSY running in room 1 or 2
+bash COSSY-stop.sh [flags]
 
-**Example: to stop COSSY running in room 1:**
+# Flags:
 
-`bash COSSY-stop.sh -R 1`
+  "-R N" stop COSSY in room number 1 (N=1) or 2 (N=2); to stop in 2 rooms, run the script twice
 
-## Ploting
+# Example: stop COSSY running in room 1:
 
-When tried to graph, go to the `plotting` folder uses:
-`python3 dataMatch.py -f [result folder name]`
-eg:
-`python3 dataMatch.py -f 05-11-2021-03:04:47/`
-Remember to add `/` at the end
+bash COSSY-stop.sh -R 1
 
-## Location of all the relevant codes
-Camera Codes:
-- Room 1: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py
-- Room 2: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py
-Fusion Codes:
-- Room 1: /home/team19/COSSY/utilities/execute_fusion_alg.py 
-- Room 2: /home/team19/COSSY/utilities/execute_fusion_alg_room2.py
-Plotting:
-- /home/team19/COSSY/plotting/COSSY_plotting.py
 
-# Notes:
+## Ploting the results
 
-**The output from the RAPID wrapper is redirected to file ```running_stdout.txt``` located in**
-**the wrapper's directory so that the stream of messages does not overwhelm the screen.**
+# Go to the "plotting" folder and run:
 
-**The output from Rsync, that synchronizes door-sensor files with the NUC, is redirected to file**
-** ```autoSync.txt``` located in the current directory.**
+python3 dataMatch.py -f [result folder name]
 
-**JSON files from the door sensors are located in directories named ``RP#``**
+# Remember to add `/` at the end of folder name, like below:
 
-**People-counting results are stored in directories with the name of execution time**
+python3 dataMatch.py -f 05-11-2021-03:04:47/
 
-##
+
+## Locations of relevenat source relevant code:
+
+# Cameras:
+
+# Room 1: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy.py
+# Room 2: /home/team19/Desktop/Axis_DL/Detection/YOLO/axis_cameras_single_cam_v2_copy_room2.py
+
+# Camera results: /home/team19/Desktop/Axis_DL/Detection/YOLO/{time_stamped folder name}
+
+# Fusion:
+
+# Room 1: /home/team19/COSSY/utilities/execute_fusion_alg.py 
+# Room 2: /home/team19/COSSY/utilities/execute_fusion_alg_room2.py
+
+# Fusion results: /home/team19/COSSY/{time_stamped folder name}
+# RP Sync results: /home/team19/COSSY/{RP1 or RP2 or RP3 or RP4}
+
+# Plotting:
+
+# /home/team19/COSSY/plotting/COSSY_plotting.py
+
+
+## Notes:
+
+# The output from the RAPID wrapper is redirected to file "running_stdout.txt" located in
+# the wrapper's directory so that the stream of messages does not overwhelm the screen.
+
+# The output from Rsync, that synchronizes door-sensor files with the NUC, is redirected to file
+# "autoSync.txt" located in the current directory.
+
+# JSON files from the door sensors are located in directories named "RP#"
+
+# People-counting results are stored in directories with time-stamped names
+

@@ -11,9 +11,10 @@ Fusion_2="python3 utilities/execute_fusion_alg_room2.py"
 room=""
 single=""
 cam=""
+camnum=""
 temperature="python3 collect_temp_info.py"
 
-while getopts "OSsmR:hr:DAB" opt;
+while getopts "OSsmR:ht:DC:" opt;
 do
     case "${opt}" in
             h) echo "- '-C' will set it to run analysis from images taken from the camera
@@ -50,15 +51,13 @@ do
                     ;;
             m) single="m"
                     ;;
-            A) cam="${cam} -A"
-                    ;;
-            B) cam="${cam} -B"
+            C) camnum="${OPTARG}" 
                     ;;
             R) Fusion="${Fusion} -R ${OPTARG}"
                 Fusion_2="${Fusion_2} -R ${OPTARG}"
                 room="${OPTARG}"
                     ;;
-            r) input="${OPTARG}"
+            t) input="${OPTARG}"
                 if [[ ${input} == "0" ]]
                 then
                     temperature=""
@@ -70,6 +69,14 @@ do
                     
     esac
 done
+echo "check"
+echo "${camnum}"
+if [[ ${camnum} == "1" ]]
+then
+    cam="${cam} -A"
+else
+    cam="${cam} -B"
+fi
 
 if [[ ${single} == "m" ]]
 then
