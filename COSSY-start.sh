@@ -74,7 +74,8 @@ echo "${camnum}"
 if [[ ${camnum} == "1" ]]
 then
     cam="${cam} -A"
-else
+elif [[ ${camnum} == "2" ]]
+then
     cam="${cam} -B"
 fi
 
