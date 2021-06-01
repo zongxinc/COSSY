@@ -190,7 +190,7 @@ while 1:
 	#fusion
 	TDS_res = ""
 	for index in range(len(count)):
-		TDS_res = TDS_res + "TDS" + str(index + 1) + ": " + str(count[index]) + " "
+		TDS_res = TDS_res + "TDS" + str(index + 1) + ": " + str(int(count[index])) + " "
 	if len(cam_ts) > 0:
 		if (len(RP_ts) > RPIndex):
 			window = cam_count[-short_window:]
@@ -224,7 +224,7 @@ while 1:
 		if len(cam_ts) > camG:
 			camG = len(cam_ts)
 			outfile = open("/home/team19/COSSY/Fusion_res.txt", "a")
-			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room #1: " + str(res_count) + " (" + TDS_res + ")" +  "\n")
+			outfile.write(str(datetime.fromtimestamp(float(res_ts))) + " Room #1: " + str(int(res_count)) + " (" + TDS_res + ")" +  "\n")
 			outfile.close()
 # 		print("Room 1:", int(res_count))
 		if DAC == 1:
