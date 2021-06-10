@@ -164,11 +164,11 @@ bash COSSY-stop.sh -R 1
 
 # Go to the "plotting" folder and run:
 
-python3 dataMatch.py -f [result folder name]
+python3 COSSY_plotting.py -f [result folder name]
 
 # Remember to add `/` at the end of folder name, like below:
 
-python3 dataMatch.py -f 05-11-2021-03:04:47/
+python3 COSSY_plotting.py -f 05-11-2021-03:04:47/
 
 
 ## Locations of relevenat source relevant code:

@@ -31,8 +31,9 @@ for file in files:
 jsonList = sorted(jsonList)
 fusion_ts = []
 fusion_count = []
-print(jsonList[0][:-5])
+#print(jsonList[0][:-5])
 dt1 = datetime.datetime.fromtimestamp(float(jsonList[0][0:len(jsonList[0])-5]))
+print(float(jsonList[0][0:len(jsonList[0])-5]))
 for i in range(len(jsonList)):
 	dt2 = datetime.datetime.fromtimestamp(float(jsonList[i][0:len(jsonList[i])-5]))
 	diff = dateutil.relativedelta.relativedelta(dt2, dt1)
@@ -70,6 +71,7 @@ for i in range(len(Camerafoldername)):
 ts_temp.sort()
 if len(ts_temp) != 0:
 	NUC_ts = NUC_ts + ts_temp
+# print(NUC_ts)
 # print("cam_ts len", cam_ts)
 #after sorting the cam_ts, append each count to the cam_count in the order of cam_ts
 for i in range(len(ts_temp)):
@@ -94,8 +96,8 @@ for i in range(len(fusion_ts)):
 		fusion_count_g.append(0)
 	fusion_ts_g.append(fusion_ts[i])
 	fusion_count_g.append(fusion_count[i])
-print(fusion_count_g)
-print(fusion_ts_g)
+#print(fusion_count_g)
+#print(fusion_ts_g)
 NUC_count_g = []
 NUC_ts_g = []
 for i in range(len(NUC_ts)):
@@ -112,8 +114,8 @@ for i in range(len(NUC_ts)):
                 NUC_count_g.append(0)
         NUC_ts_g.append(sec)
         NUC_count_g.append(NUC_count[i])
-print(NUC_ts_g)
-print(NUC_count_g)
+#print(NUC_ts_g)
+#print(NUC_count_g)
 
 RPfoldername = ["/home/team19/COSSY/RP1", "/home/team19/COSSY/RP2"]
 RP_ts = []
@@ -180,7 +182,8 @@ for i in range(len(RP_ts)):
 		RP_count_g.append(0)
 	RP_ts_g.append(sec)
 	RP_count_g.append(RP_count[i])
-RP_ts_g.append(NUC_ts[-1])
+diff = (dateutil.relativedelta.relativedelta(datetime.datetime.fromtimestamp(NUC_ts[-1]), dt1))
+RP_ts_g.append(diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds)
 RP_count_g.append(RP_count[-1])
 
 RP1_ts_g = []
@@ -196,8 +199,15 @@ for i in range(len(RP1_ts)):
 		RP1_count_g.append(0)
 	RP1_ts_g.append(RP1_ts[i])
 	RP1_count_g.append(RP1_count[i])
-RP1_ts_g.append(NUC_ts[-1])
-RP1_count_g.append(RP1_count[-1])
+
+if len(RP1_count) > 0:
+	RP1_count_g.append(RP1_count[-1])
+else:
+	RP1_ts_g.append(0)
+	RP1_count_g.append(0)
+	RP1_count_g.append(0)
+diff = (dateutil.relativedelta.relativedelta(datetime.datetime.fromtimestamp(NUC_ts[-1]), dt1))
+RP1_ts_g.append(diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds)
 
 RP2_ts_g = []
 RP2_count_g = []
@@ -212,9 +222,14 @@ for i in range(len(RP2_ts)):
 		RP2_count_g.append(0)
 	RP2_ts_g.append(RP2_ts[i])
 	RP2_count_g.append(RP2_count[i])
-RP2_ts_g.append(NUC_ts[-1])
-RP2_count_g.append(RP2_count[-1])
-
+if len(RP2_count) > 0:
+	RP2_count_g.append(RP2_count[-1])
+else:
+	RP2_ts_g.append(0)
+	RP2_count_g.append(0)
+	RP2_count_g.append(0)
+diff = (dateutil.relativedelta.relativedelta(datetime.datetime.fromtimestamp(NUC_ts[-1]), dt1))
+RP2_ts_g.append(diff.days* 86400 + diff.hours * 3600 + diff.minutes * 60 + diff.seconds)
 # print(NUC_count)
 # print(fusion_count)
 # plt.figure()
@@ -223,10 +238,10 @@ RP2_count_g.append(RP2_count[-1])
 NUC_ts = np.array(NUC_ts)
 fusion_ts = np.array(fusion_ts)
 
-print(RP1_ts_g)
-print(RP1_count_g)
-print(RP2_ts_g)
-print(RP2_count_g)
+#print(RP1_ts_g)
+#print(RP1_count_g)
+#print(RP2_ts_g)
+#print(RP2_count_g)
 
 with open('test.npy', 'wb') as f:
 	np.save(f, NUC_ts)
@@ -235,8 +250,10 @@ with open('test.npy', 'wb') as f:
 	np.save(f, fusion_count)
 print(len(NUC_count))
 plt.figure()
-plt.plot([t/60 for t in NUC_ts], [float(count) for count in NUC_count], "b", label="OFC")
+plt.plot([t/60 for t in NUC_ts_g], [float(count) for count in NUC_count_g], "b", label="OFC")
 plt.plot([t/60 for t in fusion_ts_g], [float(count) for count in fusion_count_g], "r", label="Fusion")
+#print([t/60 for t in NUC_ts_g])
+#print([t/60 for t in fusion_ts_g])
 # plt.xlim([0, 50])
 plt.yticks(np.arange(-5, 8, 1.0))
 plt.title("Fusion and OFC")
@@ -255,6 +272,8 @@ ax.set_yticks(np.arange(-5, 10, 1), minor=False)
 ax.set_ylabel("Number of people(Fusion)", color="red")
 ax.set_xlabel("Time (minutes)")
 ax2 = ax.twinx()
+#print([t/60 for t in RP_ts_g])
+#print(RP_count_g)
 l2, = ax2.plot([t/60 for t in RP_ts_g], [float(count - 0.1) for count in RP_count_g], 'g', label="TDS toal")
 # plt.xlim([0, 50])
 # plt.ylim([-10, 10])
@@ -270,7 +289,7 @@ plt.savefig("Fusion_TDS_count.png")
 
 plt.figure()
 fig,ax = plt.subplots()
-l1, = ax.plot([t/60 for t in NUC_ts], [float(count) for count in NUC_count], "r", label="OFC")
+l1, = ax.plot([t/60 for t in NUC_ts_g], [float(count) for count in NUC_count_g], "r", label="OFC")
 # plt.xlim([0, 50])
 # plt.ylim([-10, 10])
 ax.set_yticks(np.arange(-5, 10, 1), minor=False)
@@ -291,7 +310,9 @@ plt.legend([l1, l2], ["OFC", "TDS total"])
 plt.savefig("OFC_TDS_count.png")
 
 plt.figure()
+
 plt.plot([t/60 for t in RP1_ts_g], [float(count) for count in RP1_count_g], "r", label="TDS1 10.241.10.33")
+
 plt.plot([t/60 for t in RP2_ts_g], [float(count) for count in RP2_count_g], "b", label="TDS2 10.241.10.32")
 # plt.xlim([0, 50])
 plt.yticks(np.arange(-5, 8, 1.0))

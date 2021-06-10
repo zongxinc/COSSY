@@ -235,8 +235,6 @@ while 1:
 			outfile.close()
 # 		print("Room 2:", res_count)
 		if DAC == 1:
-			print("DAC")
-			print('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + str(int(res_count)))
 			os.system('python3 /home/team19/COSSY/utilities/voltage_room_2.py ' + str(int(res_count)))
 		with open('/home/team19/COSSY/room2_' + resultfolder + str(res_ts) + '.json', 'w') as outfile:
 			json.dump(result, outfile)

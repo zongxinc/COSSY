@@ -45,7 +45,7 @@ do
                 Fusion_2="${Fusion_2} -D"
                     ;;
             S) NUC="${NUC}%-s"
-                NUC2 = "${NUC2}%-s"
+                NUC2="${NUC2}%-s"
                     ;;
             s) RP="${RP}_-m"
                     ;;
@@ -90,7 +90,7 @@ fi
 # echo "${Fusion}"
 # echo "${Fusion_2}"
 # echo "${NUC}"
-# echo "${NUC2}"
+echo "${NUC2}"
 # echo "${temperature}"
 
 
